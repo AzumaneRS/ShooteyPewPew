@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpcwn85lp6dys"]
+[gd_scene load_steps=10 format=3 uid="uid://bpcwn85lp6dys"]
 
 [ext_resource type="Script" path="res://Mini Pixel Pack 3/Scenes/main.gd" id="1_0kji4"]
 [ext_resource type="Texture2D" uid="uid://dlgmh6qgfptsv" path="res://Mini Pixel Pack 3/Space_BG (2 frames) (64 x 64).png" id="1_6ese8"]
 [ext_resource type="PackedScene" uid="uid://ca0e78lfcdmll" path="res://Mini Pixel Pack 3/Player ship/player.tscn" id="2_2nrns"]
 [ext_resource type="Texture2D" uid="uid://ba8uvqs2yenxn" path="res://Mini Pixel Pack 3/UI objects/START (48 x 8).png" id="3_flon7"]
 [ext_resource type="PackedScene" uid="uid://b0t1thncwnpgh" path="res://Mini Pixel Pack 3/UI objects/UI.tscn" id="4_jjme5"]
+[ext_resource type="Texture2D" uid="uid://clriqbfm6fjti" path="res://Mini Pixel Pack 3/UI objects/GAME_OVER (72 x 8).png" id="4_odmw3"]
 
 [sub_resource type="Animation" id="Animation_uktvy"]
 length = 0.001
@@ -62,6 +63,10 @@ grow_vertical = 2
 layout_mode = 2
 texture_normal = ExtResource("3_flon7")
 
+[node name="GameOver" type="TextureRect" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("4_odmw3")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_repeat = 2
 texture = ExtResource("1_6ese8")
@@ -78,4 +83,5 @@ autoplay = "scroll"
 [node name="Player" parent="." instance=ExtResource("2_2nrns")]
 
 [connection signal="pressed" from="CanvasLayer/CenterContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="shield_changed" from="Player" to="CanvasLayer/UI" method="update_shield"]
