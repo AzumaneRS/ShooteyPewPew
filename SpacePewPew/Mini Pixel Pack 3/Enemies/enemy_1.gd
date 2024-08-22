@@ -16,21 +16,21 @@ func start(pos):
 	var tween = create_tween().set_trans(Tween.TRANS_BACK)
 	tween.tween_property(self, "position:y", start_pos.y, 1.4)
 	await tween.finished
-	$MoveTimer.wait_time = randf_range(5, 20)
+	$MoveTimer.wait_time = randf_range(2, 10)
 	$MoveTimer.start()
-	$ShootTimer.wait_time = randf_range(4, 20)
+	$ShootTimer.wait_time = randf_range(1, 6)
 	$ShootTimer.start()
 
 func _on_shoot_timer_timeout():
 	var b = bullet_scene.instantiate()
 	get_tree().root.add_child(b)
 	b.start(position)
-	$ShootTimer.wait_time = randf_range(4, 20)
+	$ShootTimer.wait_time = randf_range(4, 10)
 	$ShootTimer.start()
 
 
 func _on_move_timer_timeout():
-	speed = randf_range(75, 100)
+	speed = randf_range(50, 65)
 
 func _process(delta):
 	position.y += speed * delta

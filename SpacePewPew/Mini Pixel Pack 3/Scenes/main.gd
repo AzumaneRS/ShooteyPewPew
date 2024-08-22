@@ -36,7 +36,6 @@ func new_game():
 	$Player.start()
 	spawn_enemies()
 
-
 func _on_player_died():
 	get_tree().call_group("enemies", "queue_free")
 	game_over.show()
