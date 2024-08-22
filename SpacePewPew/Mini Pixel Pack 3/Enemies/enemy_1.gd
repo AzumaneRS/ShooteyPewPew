@@ -9,7 +9,7 @@ signal died
 @onready var screensize = get_viewport_rect().size
 
 func start(pos):
-	speed = 0
+	speed = 3
 	position = Vector2(pos.x, -pos.y)
 	start_pos = pos
 	await get_tree().create_timer(randf_range(0.25, 0.55)).timeout

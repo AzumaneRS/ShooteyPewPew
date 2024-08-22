@@ -51,6 +51,7 @@ script = ExtResource("1_0kji4")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("4_jjme5")]
+offset_bottom = 36.0
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
 anchors_preset = 15
